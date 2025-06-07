@@ -1,0 +1,23 @@
+# Java
+*.class
+*.log
+*.jar
+*.war
+*.ear
+*.iml
+
+# Maven
+/target/
+.settings/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Reports
+/reports/
+test-output/
+
+# Logs
+*.log
