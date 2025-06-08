@@ -8,11 +8,10 @@ public class ExtentManager {
 
     public static ExtentReports getInstance() {
         if (extent == null) {
-            ExtentSparkReporter spark = new ExtentSparkReporter("test-output/ExtentReport.html");
-//        	ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("test-output/ExtentReport.html");
+//            ExtentSparkReporter spark = new ExtentSparkReporter("test-output/ExtentReport.html");
+            ExtentSparkReporter spark = new ExtentSparkReporter("C:\\Users\\097960744\\eclipse-workspace\\API_Framework\\test-output/ExtentReport.html");            
             extent = new ExtentReports();
             extent.attachReporter(spark);
-//            extent.attachReporter(htmlReporter);
             extent.setSystemInfo("Framework", "REST Assured");
             extent.setSystemInfo("Tester", "Prathviraj");
         }
