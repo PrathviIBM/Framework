@@ -9,7 +9,6 @@
       <class name="tests.UserTests">
         <methods>
           <include name="testRegisterUser"/>
-          <include name="testCreateUser"/>
           <include name="setup"/>
         </methods>
       </class> <!-- tests.UserTests -->

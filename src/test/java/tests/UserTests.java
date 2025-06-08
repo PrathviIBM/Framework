@@ -18,11 +18,14 @@ public class UserTests extends TestBase{
 
 	@Test
 	public void testRegisterUser(){
-		UserService.registerUser("eve.holt@reqres.in", "pistol")
-		.then()
-		.log().all()
-        .statusCode(200)
-        .body("token", notNullValue());
+		Response response = UserService.registerUser("eve.holt@reqres.in", "pistol");
+		AssertionUtils.logResponse(response);
+		AssertionUtils.statusCode(response,201);
+		AssertionUtils.assertResponseBody(response, "token", "notNullValue()");
+//		.then()
+//		.log().all()
+//        .statusCode(200)
+//        .body("token", notNullValue());
 	}
 	
 	@Test
