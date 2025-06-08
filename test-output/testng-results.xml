@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-08T02:18:10 IST" name="Suite" finished-at="2025-06-08T02:18:13 IST" duration-ms="3219">
+  <suite started-at="2025-06-08T08:49:52 IST" name="Suite" finished-at="2025-06-08T08:49:55 IST" duration-ms="2926">
     <groups>
     </groups>
-    <test started-at="2025-06-08T02:18:10 IST" name="Test" finished-at="2025-06-08T02:18:13 IST" duration-ms="3219">
+    <test started-at="2025-06-08T08:49:52 IST" name="Test" finished-at="2025-06-08T08:49:55 IST" duration-ms="2926">
       <class name="tests.UserTests">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.UserTests@14dd7b39]" started-at="2025-06-08T02:18:10 IST" name="setup" finished-at="2025-06-08T02:18:10 IST" duration-ms="388" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.UserTests@5dafbe45]" started-at="2025-06-08T08:49:52 IST" name="setup" finished-at="2025-06-08T08:49:53 IST" duration-ms="352" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testCreateUser()[pri:0, instance:tests.UserTests@14dd7b39]" started-at="2025-06-08T02:18:10 IST" name="testCreateUser" finished-at="2025-06-08T02:18:13 IST" duration-ms="2247" status="PASS">
+        <test-method signature="testCreateUser()[pri:0, instance:tests.UserTests@5dafbe45]" started-at="2025-06-08T08:49:53 IST" name="testCreateUser" finished-at="2025-06-08T08:49:55 IST" duration-ms="1907" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCreateUser -->
-        <test-method signature="testRegisterUser()[pri:0, instance:tests.UserTests@14dd7b39]" started-at="2025-06-08T02:18:13 IST" name="testRegisterUser" finished-at="2025-06-08T02:18:13 IST" duration-ms="540" status="PASS">
+        <test-method signature="testRegisterUser()[pri:0, instance:tests.UserTests@5dafbe45]" started-at="2025-06-08T08:49:55 IST" name="testRegisterUser" finished-at="2025-06-08T08:49:55 IST" duration-ms="625" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testRegisterUser -->
