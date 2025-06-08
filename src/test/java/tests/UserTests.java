@@ -2,19 +2,24 @@ package tests;
 
 import base.TestBase;
 import data.Payloads;
+import dataProviders.ExcelDataProvider;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+
 import utils.Endpoints;
 import services.UserService;
 import utils.AssertionUtils;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
+import static org.testng.Assert.assertEquals;
 
 import java.lang.reflect.Method;
 
@@ -26,7 +31,16 @@ public class UserTests extends TestBase{
     public void beforeEachTest(Method method) {
         System.out.println("\n<------------- < " + method.getName() + " > API Request----------->\n");
     }
-		
+	
+//	//Testing with Excel and dataProvider
+	@Test(dataProvider = "userData", dataProviderClass = ExcelDataProvider.class)
+    public void testRegisterUser(String email, String password) {
+		System.out.print("Test ececuted using DataProvider");
+		Response response = UserService.registerUser(email, password);     
+        AssertionUtils.logResponse(response);
+		AssertionUtils.statusCode(response,200);
+    }	
+
 	@Test
 	public void getUSer() {
 		Response response = UserService.getUser("id",2);
@@ -39,7 +53,7 @@ public class UserTests extends TestBase{
 		Response response = UserService.registerUser("eve.holt@reqres.in", "pistol");
 		AssertionUtils.logResponse(response);
 		AssertionUtils.statusCode(response,200);
-		AssertionUtils.assertResponseBody(response, "token", "notNullValue()");
+		AssertionUtils.tokenValidation(response);
 	}
 	
 	@Test
@@ -50,8 +64,6 @@ public class UserTests extends TestBase{
 		AssertionUtils.assertResponseBody(response, "name", "morpheus");	
 	}	
 }
-
-
 
 
 /* 1. First way of testing api's

@@ -12,7 +12,7 @@ public class UserService {
 	public static Response registerUser(String email, String password) {
         return given()
             .body(Payloads.registerPayload(email, password))
-            .log().uri()
+            .log().all()
         .when()
             .post(Endpoints.REGISTER);
     }
@@ -31,7 +31,6 @@ public class UserService {
 				.log().all()
 				.when()
 				.get(Endpoints.GET_USER);
-		
 				
 	}
 }

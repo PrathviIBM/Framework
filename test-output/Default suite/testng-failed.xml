@@ -5,7 +5,8 @@
     <classes>
       <class name="tests.UserTests">
         <methods>
-          <include name="getUSer"/>
+          <include name="testRegisterUser" invocation-numbers="0"/>
+          <include name="beforeEachTest"/>
           <include name="setup"/>
         </methods>
       </class> <!-- tests.UserTests -->

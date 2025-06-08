@@ -8,7 +8,7 @@
     <classes>
       <class name="tests.UserTests">
         <methods>
-          <include name="testRegisterUser"/>
+          <include name="testRegisterUser" invocation-numbers="1"/>
           <include name="beforeEachTest"/>
           <include name="setup"/>
         </methods>
