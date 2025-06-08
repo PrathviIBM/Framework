@@ -21,7 +21,7 @@ public class UserTests extends TestBase{
 		UserService.registerUser("eve.holt@reqres.in", "pistol")
 		.then()
 		.log().all()
-        .statusCode(202)
+        .statusCode(200)
         .body("token", notNullValue());
 	}
 	
@@ -29,7 +29,7 @@ public class UserTests extends TestBase{
 	public void testCreateUser() {
 		Response response = UserService.createUserPayload("morpheus", "leader");
 		AssertionUtils.logResponse(response);
-		AssertionUtils.statusCode(response,200);
+		AssertionUtils.statusCode(response,201);
 		AssertionUtils.assertResponseBody(response, "name", "morpheus");
 		
 //		.then() // log implementation in AssertionUtils.java
