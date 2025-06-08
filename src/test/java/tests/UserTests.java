@@ -4,6 +4,10 @@ import base.TestBase;
 import data.Payloads;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.Endpoints;
 import services.UserService;
@@ -12,20 +16,30 @@ import utils.AssertionUtils;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
+import java.lang.reflect.Method;
+
 // Second way for Testing
 
 public class UserTests extends TestBase{
 
+	@BeforeMethod
+    public void beforeEachTest(Method method) {
+        System.out.println("\n<------------- < " + method.getName() + " > API Request----------->\n");
+    }
+		
+	@Test
+	public void getUSer() {
+		Response response = UserService.getUser("id",2);
+		AssertionUtils.logResponse(response);
+		AssertionUtils.statusCode(response,200);
+	}
+	
 	@Test
 	public void testRegisterUser(){
 		Response response = UserService.registerUser("eve.holt@reqres.in", "pistol");
 		AssertionUtils.logResponse(response);
-		AssertionUtils.statusCode(response,201);
+		AssertionUtils.statusCode(response,200);
 		AssertionUtils.assertResponseBody(response, "token", "notNullValue()");
-//		.then()
-//		.log().all()
-//        .statusCode(200)
-//        .body("token", notNullValue());
 	}
 	
 	@Test
@@ -33,12 +47,7 @@ public class UserTests extends TestBase{
 		Response response = UserService.createUserPayload("morpheus", "leader");
 		AssertionUtils.logResponse(response);
 		AssertionUtils.statusCode(response,201);
-		AssertionUtils.assertResponseBody(response, "name", "morpheus");
-		
-//		.then() // log implementation in AssertionUtils.java
-//		.log().all()
-//		.statusCode(201)
-//        .body("name", equalTo("morpheus"));		
+		AssertionUtils.assertResponseBody(response, "name", "morpheus");	
 	}	
 }
 

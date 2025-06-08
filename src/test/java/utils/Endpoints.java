@@ -5,6 +5,7 @@ public class Endpoints {
     //public static final String REGISTER = "/api/register";
     //public static final String GET_USER = "/api/users/{id}";
 	
+	public static final String GET_USER = "/users/{id}";
 	public static final String REGISTER = "/register";
 	public static final String CREAT_USER = "/users";	
 }

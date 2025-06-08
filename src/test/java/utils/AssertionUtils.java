@@ -4,8 +4,9 @@ import io.restassured.response.Response;
 import static org.hamcrest.Matchers.*;
 public class AssertionUtils {
 
-	public static void logResponse(Response response) {
-		//response.then().log().all();
+	public static void logResponse(Response response) {		
+		System.out.print("\n<---------------------- < API Response > ---------------------->\n\n");
+		response.then().log().body();
 		ExtentTestManager.getTest().info("Response: " + response.asPrettyString());
 	}
 	
